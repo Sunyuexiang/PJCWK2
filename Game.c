@@ -2,11 +2,11 @@
 // Created by ASUS on 2022/4/28.
 //
 
-#include<stdio.h>
+/*#include<stdio.h>
 
 int High;
 int Width;
-
+int Cells[High][Width];
 void ReadFile(){
     FILE *fp = fopen("Initialize.txt", "r");
     for(int a = 0;a < 1; a++){
@@ -30,19 +30,41 @@ void Play(){
     for(i = 1; i < High ;i++){
         for(j = 0; j < Width;j++){
             if(Cells[i][j] == 1){
-                printf ("*");
+                printf ("1 ");
             }
             else{
-                printf (" ");
+                printf ("0 ");
             }
         }
         printf("\n");
     }
 }
 
+void Change(){
+    int i,j;
+    int count;
+    int temp[High][Width];
+    for(i=1;i<High;i++)
+    {
+        for(j=1;j<Width;j++)
+        {
+            count=Cells[i-1][j-1]+Cells[i-1][j]+Cells[i-1][j+1]+Cells[i][j-1]+Cells[i][j+1]+Cells[i+1][j-1]
+                    +Cells[i+1][j]+Cells[i+1][j+1];
+            if(count == 3)
+                temp[i][j]=1;
+            else if(count == 2)
+                    temp[i][j]=Cells[i][j];
+            else
+            temp[i][j]=0;
+        }
+    }
+    for(i=1;i<High;i++)
+        for(j=1;j<Width;j++)
+            Cells[i][j]=temp[i][j];
+}
 
 int main(){
     ReadFile();
     Play();
     return 0;
-}
+}*/
