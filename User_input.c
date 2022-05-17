@@ -1,15 +1,18 @@
 //
+// Created by ASUS on 2022/5/16.
+//
+
+//
 // Created by ASUS on 2022/4/28.
 //
 
 #include<stdio.h>
 #include<stdlib.h>
 
-void Play(){
+void User_Play(){
     //初始化
     int High;
     int Width;
-    int Round;
     //读取文件
     FILE *fp = fopen("Initialize.txt", "r");
     if(fp == NULL){
@@ -18,7 +21,6 @@ void Play(){
     }
     fscanf(fp,"%d",&High);
     fscanf(fp,"%d",&Width);
-    fscanf(fp,"%d",&Round);
     fclose(fp);
     //生成正常环境
     int i,j;
@@ -36,6 +38,9 @@ void Play(){
     }
     //循环Round次
     int d;
+    int Round;
+    printf("Enter the number that you want to loop:\n");
+    scanf("%d",&Round);
     for(d = 0; d < Round;d++) {
         //建一个外部全是0的新二维数组
         int New_Cells[High + 2][Width + 2];
@@ -74,7 +79,7 @@ void Play(){
             }
         }
         //写入文件
-        FILE *fp = fopen("Result.txt", "a+");
+        FILE *fp = fopen("User_Result.txt", "a+");
         fputs("\n",fp);
         for (i = 0; i < High; i++) {
             for (j = 0; j < Width; j++) {
