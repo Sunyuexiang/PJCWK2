@@ -44,7 +44,3 @@ int Interface(){
     }
 
 }
-
-void main(){
-    Interface();
-}

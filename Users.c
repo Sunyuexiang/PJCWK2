@@ -9,11 +9,13 @@ int High;
 int Width;
 
 void Users_Crete(){
+    //输入环境大小
     printf("Enter the Width :");
     scanf("%d", &High);
     printf("Enter the High :");
     scanf("%d", &Width);
-    int User_Cells[High][Width];
+
+    //生成环境
     int i,j;
     int Cells[High][Width];
     for(i = 0; i < High ;i++){
@@ -27,6 +29,8 @@ void Users_Crete(){
             }
         }
     }
+
+    //手动输入循环Round次
     int d;
     int Round;
     printf("Enter the number that you want to loop:");

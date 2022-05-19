@@ -10,9 +10,11 @@
 #include<stdlib.h>
 
 void User_Play(){
+
     //初始化
     int High;
     int Width;
+
     //读取文件
     FILE *fp = fopen("Initialize.txt", "r");
     if(fp == NULL){
@@ -22,6 +24,7 @@ void User_Play(){
     fscanf(fp,"%d",&High);
     fscanf(fp,"%d",&Width);
     fclose(fp);
+
     //生成正常环境
     int i,j;
     int Cells[High][Width];
@@ -36,6 +39,7 @@ void User_Play(){
             }
         }
     }
+
     //循环Round次
     int d;
     int Round;
@@ -78,6 +82,7 @@ void User_Play(){
                 Cells[i][j] = temp[i][j];
             }
         }
+
         //写入文件
         FILE *fp = fopen("User_Result.txt", "a+");
         fputs("\n",fp);
