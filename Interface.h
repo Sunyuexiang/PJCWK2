@@ -1,9 +1,8 @@
 //
-// Created by ASUS on 2022/5/20.
+// Created by syx011020 on 22-5-20.
 //
 
-#ifndef UNTITLED_INTERFACE_H
-#define UNTITLED_INTERFACE_H
-
-#endif //UNTITLED_INTERFACE_H
+#ifndef UNTITLED1_INTERFACE_H
+#define UNTITLED1_INTERFACE_H
 int Interface();
+#endif //UNTITLED1_INTERFACE_H
