@@ -4,6 +4,7 @@
 
 #include "Users_Create.h"
 #include <stdio.h>
+#include "Interface.h"
 
 #define Window_Width 800
 #define Window_Height 800
@@ -89,6 +90,15 @@ void Users_Input(){
     scanf("%d", &W);
     printf("Enter the High : ");
     scanf("%d", &H);
+    if(W <= 0||H <= 0){
+        printf("Wrong number!\n");
+        Interface();
+        Choose();
+    }
+    int d;
+    int Round;
+    printf("Enter the number that you want to loop:");
+    scanf("%d",&Round);
     int i,j;
     int Cells[H][W];
     for(i = 0; i < H ;i++){
@@ -103,15 +113,9 @@ void Users_Input(){
         }
     }
 
-    //手动输入循环Round次
-    int d;
-    int Round;
-    printf("Enter the number that you want to loop:");
-    scanf("%d",&Round);
-
     Initialize();
 
-    for(d = 0; d < Round;d++) {
+    for(d = 1; d <= Round;d++) {
         //建一个外部全是0的新二维数组
         int New_Cells[H + 2][W + 2];
         for (i = 0; i < H + 2; i++) {
@@ -165,7 +169,7 @@ void Users_Input(){
             }
         }
         if(Count == Multiply) {
-            printf("ALL cells die.");
+            printf("ALL cells die\n.");
             return;
         }
 
@@ -180,11 +184,10 @@ void Users_Input(){
             }
         }
         SDL_Delay(1000);
-
         //写入文件
 
         FILE *fp = fopen("Result.txt", "a+");
-        fputs("\n",fp);
+        fprintf(fp, "Round:%d\n",d);
         for (i = 0; i < H; i++) {
             for (j = 0; j < W; j++) {
                 if (Cells[i][j] == 1) {

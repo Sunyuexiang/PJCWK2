@@ -7,5 +7,6 @@
 
 int main(){
     Interface();
+    Choose();
     return 0;
 }

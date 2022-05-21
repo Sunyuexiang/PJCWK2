@@ -72,10 +72,10 @@ void Users_Control() {
         return;
     }
     window1 = SDL_CreateWindow("Game of life",
-                              SDL_WINDOWPOS_CENTERED,
-                              SDL_WINDOWPOS_CENTERED,
-                              Window_Width,
-                              Window_Height, SDL_WINDOW_SHOWN);
+                               SDL_WINDOWPOS_CENTERED,
+                               SDL_WINDOWPOS_CENTERED,
+                               Window_Width,
+                               Window_Height, SDL_WINDOW_SHOWN);
     if (window1 == NULL) {
         SDL_Log("Can not create window,%s", SDL_GetError());
         return;
@@ -153,10 +153,10 @@ void Users_Control() {
         return;
     }
     window1 = SDL_CreateWindow("Game of life",
-                              SDL_WINDOWPOS_CENTERED,
-                              SDL_WINDOWPOS_CENTERED,
-                              Window_Width,
-                              Window_Height, SDL_WINDOW_SHOWN);
+                               SDL_WINDOWPOS_CENTERED,
+                               SDL_WINDOWPOS_CENTERED,
+                               Window_Width,
+                               Window_Height, SDL_WINDOW_SHOWN);
     if (window1 == NULL) {
         SDL_Log("Can not create window,%s", SDL_GetError());
         return;
@@ -168,7 +168,7 @@ void Users_Control() {
     SDL_SetRenderDrawColor(renderer1, 0, 255, 255, 255);
     SDL_RenderClear(renderer1);
 
-    for (d = 0; d < Round; d++) {
+    for (d = 1; d <= Round; d++) {
         int New_Cells[H1 + 2][W1 + 2];
         for (i = 0; i < H1 + 2; i++) {
             for (j = 0; j < W1 + 2; j++) {
@@ -238,7 +238,7 @@ void Users_Control() {
         //写入文件
 
         FILE *fp = fopen("Show.txt", "a+");
-        fputs("\n", fp);
+        fprintf(fp, "Round:%d\n",d);
         for (i = 0; i < H1; i++) {
             for (j = 0; j < W1; j++) {
                 if (Cells[i][j] == 1) {
@@ -257,6 +257,7 @@ void Users_Control() {
 int Play_User_Control(){
     Users_Control();
     Event_Loop1();
+    SDL_Delay(1000);
     SDL_DestroyRenderer(renderer1);
     SDL_DestroyWindow(window1);
     return 0;
